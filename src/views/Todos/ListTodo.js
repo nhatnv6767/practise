@@ -29,8 +29,17 @@ class ListTodo extends Component {
         toast.success("Delete succeed!")
     }
 
+    handleEditTodo = (todo) => {
+        this.setState({
+            editTodo: todo
+        })
+    }
+
     render() {
-        let { listTodos } = this.state
+        let { listTodos, editTodo } = this.state
+
+        let isEmptyObj = Object.keys(editTodo).length === 0;
+
         return (
             <div className="list-todo-container">
                 <AddTodo
@@ -41,9 +50,15 @@ class ListTodo extends Component {
                         listTodos.map((item, index) => {
                             return (
                                 <div className="todo-child" key={item.id}>
-                                    <span>{index + 1} - {item.title}</span>
+                                    {isEmptyObj ?
+                                        <span>{index + 1} - {item.title}</span>
+                                        :
+                                        <span>
+                                            {index + 1} - <input value={editTodo.value} />
+                                        </span>
+                                    }
                                     <button className="edit"
-                                        onClick={() => this.handleEditTodo()}
+                                        onClick={() => this.handleEditTodo(item)}
                                     >
                                         Edit
                                     </button>
