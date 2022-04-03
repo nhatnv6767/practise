@@ -20,21 +20,18 @@ class ListTodo extends Component {
                     <button type="button" className='add'>Add</button>
                 </div>
                 <div className="list-todo-content">
-                    <div className="todo-child">
-                        <span>Todo1</span>
-                        <button>Edit</button>
-                        <button>Delete</button>
-                    </div>
-                    <div className="todo-child">
-                        <span>Todo1</span>
-                        <button>Edit</button>
-                        <button>Delete</button>
-                    </div>
-                    <div className="todo-child">
-                        <span>Todo1</span>
-                        <button>Edit</button>
-                        <button>Delete</button>
-                    </div>
+                    {listTodos && listTodos.length > 0 &&
+                        listTodos.map((item, index) => {
+                            return (
+                                <div className="todo-child">
+                                    <span>Todo1</span>
+                                    <button>Edit</button>
+                                    <button>Delete</button>
+                                </div>
+                            )
+                        })
+                    }
+
                 </div>
             </div>
         );
