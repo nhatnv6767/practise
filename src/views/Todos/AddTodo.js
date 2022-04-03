@@ -12,6 +12,10 @@ class AddTodo extends Component {
     }
 
     handleAddTodo = () => {
+        if (!this.state.title) {
+            alert("Missing title")
+            return;
+        }
         let todo = {
             id: Math.floor(Math.random() * 1000000),
             title: this.state.title
