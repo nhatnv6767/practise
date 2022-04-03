@@ -35,6 +35,15 @@ class ListTodo extends Component {
         })
     }
 
+    handleOnChangeEditTodo = (event) => {
+        let editTodoCopy = { ...this.state.editTodo }
+        editTodoCopy.title = event.target.value
+
+        this.setState({
+            editTodo: editTodoCopy
+        })
+    }
+
     render() {
         let { listTodos, editTodo } = this.state
 
@@ -53,14 +62,24 @@ class ListTodo extends Component {
                                     {isEmptyObj ?
                                         <span>{index + 1} - {item.title}</span>
                                         :
-                                        <span>
-                                            {index + 1} - <input value={editTodo.value} />
-                                        </span>
+                                        <>
+                                            {editTodo.id === item.id ?
+                                                <span>
+                                                    {index + 1} - <input value={editTodo.title}
+                                                        onChange={(event) => this.handleOnChangeEditTodo(event)}
+                                                    />
+                                                </span>
+                                                :
+                                                <span>{index + 1} - {item.title}</span>
+                                            }
+                                        </>
                                     }
                                     <button className="edit"
                                         onClick={() => this.handleEditTodo(item)}
                                     >
-                                        Edit
+                                        {isEmptyObj === false && editTodo.id === item.id ?
+                                            "Save" : "Edit"
+                                        }
                                     </button>
                                     <button className="delete"
                                         onClick={() => this.handleDeleteTodo(item)}
