@@ -25,8 +25,8 @@ class ListTodo extends Component {
                             return (
                                 <div className="todo-child" key={item.id}>
                                     <span>{index + 1} - {item.title}</span>
-                                    <button>Edit</button>
-                                    <button>Delete</button>
+                                    <button className="edit">Edit</button>
+                                    <button className="delete">Delete</button>
                                 </div>
                             )
                         })
