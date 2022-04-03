@@ -19,6 +19,15 @@ class ListTodo extends Component {
         toast.success("Wow so easy!")
     }
 
+    handleDeleteTodo = (todo) => {
+        let currentTodos = this.state.listTodos
+        currentTodos = currentTodos.filter(item => item.id !== todo.id)
+        this.setState({
+            listTodos: currentTodos
+        })
+        toast.success("Delete succeed!")
+    }
+
     render() {
         let { listTodos } = this.state
         return (
@@ -33,7 +42,11 @@ class ListTodo extends Component {
                                 <div className="todo-child" key={item.id}>
                                     <span>{index + 1} - {item.title}</span>
                                     <button className="edit">Edit</button>
-                                    <button className="delete">Delete</button>
+                                    <button className="delete"
+                                        onClick={() => this.handleDeleteTodo(item)}
+                                    >
+                                        Delete
+                                    </button>
                                 </div>
                             )
                         })
