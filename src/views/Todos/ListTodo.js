@@ -11,6 +11,7 @@ class ListTodo extends Component {
             { id: 'todo2', title: 'Coding ReactJS' },
             { id: 'todo3', title: 'Fixing bugs' },
         ],
+        editTodo: {}
     }
     addNewTodo = (todo) => {
         this.setState({
@@ -41,7 +42,11 @@ class ListTodo extends Component {
                             return (
                                 <div className="todo-child" key={item.id}>
                                     <span>{index + 1} - {item.title}</span>
-                                    <button className="edit">Edit</button>
+                                    <button className="edit"
+                                        onClick={() => this.handleEditTodo()}
+                                    >
+                                        Edit
+                                    </button>
                                     <button className="delete"
                                         onClick={() => this.handleDeleteTodo(item)}
                                     >
