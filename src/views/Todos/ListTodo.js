@@ -3,8 +3,14 @@ import React, { Component } from 'react';
 class ListTodo extends Component {
     render() {
         return (
-            <div>
-                Hello List to do
+            <div className="list-todo-container">
+                <div className="add-todo">
+                    <input type="text" />
+                    <button type="button" className='add'>Add</button>
+                </div>
+                <div className="list-todo-content">
+
+                </div>
             </div>
         );
     }
