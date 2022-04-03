@@ -20,13 +20,19 @@ class ListTodo extends Component {
                 </div>
                 <div className="list-todo-content">
                     <div className="todo-child">
-                        Todo1
+                        <span>Todo1</span>
+                        <button>Edit</button>
+                        <button>Delete</button>
                     </div>
                     <div className="todo-child">
-                        Todo1
+                        <span>Todo1</span>
+                        <button>Edit</button>
+                        <button>Delete</button>
                     </div>
                     <div className="todo-child">
-                        Todo1
+                        <span>Todo1</span>
+                        <button>Edit</button>
+                        <button>Delete</button>
                     </div>
                 </div>
             </div>
