@@ -21,7 +21,9 @@ class ListTodo extends Component {
         let { listTodos } = this.state
         return (
             <div className="list-todo-container">
-                <AddTodo />
+                <AddTodo
+                    addNewTodo={this.addNewTodo}
+                />
                 <div className="list-todo-content">
                     {listTodos && listTodos.length > 0 &&
                         listTodos.map((item, index) => {
