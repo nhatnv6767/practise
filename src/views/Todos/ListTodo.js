@@ -11,6 +11,11 @@ class ListTodo extends Component {
             { id: 'todo3', title: 'Fixing bugs' },
         ],
     }
+    addNewTodo = (todo) => {
+        this.setState({
+            listTodos: [...this.state.listTodos, todo],
+        })
+    }
 
     render() {
         let { listTodos } = this.state
